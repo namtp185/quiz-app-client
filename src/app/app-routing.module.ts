@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoggedGuard } from './_guards/logged.guard';
 import { QuizDetailComponent } from './quiz-detail/quiz-detail.component';
 import { ConfirmTestGuard } from './_guards/confirm-test.guard';
+import { TestFormioComponent } from './test-formio/test-formio.component';
 // import { ResultComponent } from './result/result.component';
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   // { path: '**', redirectTo: '' },
-  { path: 'about', component: LandingPageComponent }
+  { path: 'about', component: LandingPageComponent },
+  { path: 'test-formio', component: TestFormioComponent },
 ];
 
 @NgModule({

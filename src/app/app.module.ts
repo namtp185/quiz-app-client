@@ -31,6 +31,9 @@ import { QuizDetailComponent } from './quiz-detail/quiz-detail.component';
 import { TestingComponent } from './testing/testing.component';
 import { CommonModule } from '@angular/common';
 import { DefaultComponent } from './default/default.component';
+import { TestFormioComponent } from './test-formio/test-formio.component';
+import { FormioAppConfig, FormioModule } from '@formio/angular';
+import { FormioConfig } from './formio-config';
 // import { MaterialModule } from './material-module';
 
 
@@ -52,11 +55,13 @@ import { DefaultComponent } from './default/default.component';
     QuizDetailComponent,
     WelcomeComponent,
     TestingComponent,
-    DefaultComponent
+    DefaultComponent,
+    TestFormioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormioModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientModule,
@@ -71,6 +76,7 @@ import { DefaultComponent } from './default/default.component';
     AuthenticationService,
     UserService,
     AlertService,
+    {provide: FormioAppConfig, useValue: FormioConfig},
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
