@@ -30,6 +30,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { QuizDetailComponent } from './quiz-detail/quiz-detail.component';
 import { TestingComponent } from './testing/testing.component';
 import { CommonModule } from '@angular/common';
+import { DefaultComponent } from './default/default.component';
 // import { MaterialModule } from './material-module';
 
 
@@ -50,7 +51,8 @@ import { CommonModule } from '@angular/common';
     DashboardComponent,
     QuizDetailComponent,
     WelcomeComponent,
-    TestingComponent
+    TestingComponent,
+    DefaultComponent
   ],
   imports: [
     BrowserModule,
