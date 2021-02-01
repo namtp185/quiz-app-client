@@ -39,7 +39,7 @@ const routes: Routes = [
     // canActivate: [LoggedGuard] 
   },
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '' },
+  // { path: '**', redirectTo: '' },
   { path: 'about', component: LandingPageComponent }
 ];
 
