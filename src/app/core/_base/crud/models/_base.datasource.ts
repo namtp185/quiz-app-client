@@ -19,7 +19,7 @@ export class BaseDataSource implements DataSource<BaseModel> {
   hasItems = true; // Need to show message: 'No records found'
 
   // Loading | Progress bar
-  loading$: Observable<boolean>;
+  loading$!: Observable<boolean>;
   isPreloadTextViewed$: Observable<boolean> = of(true);
 
   // Paginator | Paginators count

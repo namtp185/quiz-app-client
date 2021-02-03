@@ -6,7 +6,7 @@ export class BaseModel {
   // tslint:disable-next-line:variable-name
   _userId = 0; // Admin
   // tslint:disable-next-line:variable-name
-  _createdDate: string;
+  _createdDate!: string;
   // tslint:disable-next-line:variable-name
-  _updatedDate: string;
+  _updatedDate!: string;
 }

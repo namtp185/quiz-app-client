@@ -85,7 +85,7 @@ export class LayoutUtilsService {
    *
    * @param data: any
    */
-  fetchElements(data) {
+  fetchElements(data: any) {
     return this.dialog.open(FetchEntityDialogComponent, {
       data,
       width: '600px'
@@ -99,7 +99,7 @@ export class LayoutUtilsService {
    * @param statuses: string[]
    * @param messages: string[]
    */
-  updateStatusForEntities(title, statuses, messages) {
+  updateStatusForEntities(title: any, statuses: any, messages: any) {
     return this.dialog.open(UpdateStatusDialogComponent, {
       data: {title, statuses, messages},
       width: '600px'

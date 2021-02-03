@@ -12,7 +12,7 @@ export class HttpUtilsService {
    * Prepare query http params
    * @param queryParams: QueryParamsModel
    */
-  getFindHTTPParams(queryParams): HttpParams {
+  getFindHTTPParams(queryParams: {filter: any; sortOrder: any; sortField: any; pageNumber: any; pageSize: any}): HttpParams {
     return new HttpParams()
       .set('lastNamefilter', queryParams.filter)
       .set('sortOrder', queryParams.sortOrder)

@@ -7,7 +7,7 @@ export class QueryParamsModel {
   pageSize: number;
 
   // constructor overrides
-  constructor(filter, sortOrder = 'asc', sortField = '', pageNumber = 0, pageSize = 10) {
+  constructor(filter: any, sortOrder: any = 'asc', sortField = '', pageNumber: number = 0, pageSize: number = 10) {
     this.filter = filter;
     this.sortOrder = sortOrder;
     this.sortField = sortField;
