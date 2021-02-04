@@ -82,7 +82,6 @@ import {
 } from './core/_base/layout';
 
 // Auth
-import { AuthModule } from './views/pages/auth/auth.module';
 import { AuthService } from './core/auth';
 // CRUD
 import {
