@@ -19,7 +19,7 @@ export class ProductsService {
   }
 
   // CREATE =>  POST: add a new product to the server
-  createProduct(product): Observable<ProductModel> {
+  createProduct(product: any): Observable<ProductModel> {
     const httpHeaders = this.httpUtils.getHTTPHeaders();
     return this.http.post<ProductModel>(API_PRODUCTS_URL, product, {headers: httpHeaders});
   }

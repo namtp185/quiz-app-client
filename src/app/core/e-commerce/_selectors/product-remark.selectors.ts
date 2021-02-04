@@ -39,7 +39,7 @@ export const selectProductRemarksInStore = createSelector(
     selectProductRemarksState,
     productRemarksState => {
       const items: ProductRemarkModel[] = [];
-      each(productRemarksState.entities, element => {
+      each(productRemarksState.entities, (element: any) => {
         items.push(element);
       });
       const httpExtension = new HttpExtenstionsModel();

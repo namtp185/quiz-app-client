@@ -1,8 +1,8 @@
 export class Address {
-  addressLine: string;
-  city: string;
-  state: string;
-  postCode: string;
+  addressLine!: string;
+  city!: string;
+  state!: string;
+  postCode!: string;
 
   clear() {
     this.addressLine = '';

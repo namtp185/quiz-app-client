@@ -1,16 +1,16 @@
 import { BaseModel } from '../../_base/crud';
 
 export class ProductSpecificationModel  extends BaseModel {
-  id: number;
-  carId: number;
-  specId: number;
-  value: string;
+  id: number | undefined;
+  carId!: number;
+  specId: number | undefined;
+  value!: string;
 
   // Refs
   // tslint:disable-next-line
-  _carName: string;
+  _carName!: string;
   // tslint:disable-next-line
-  _specificationName: string;
+  _specificationName!: string;
 
   clear(carId: number) {
     this.id = undefined;

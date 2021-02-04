@@ -44,7 +44,7 @@ export const selectProductsInStore = createSelector(
     selectProductsState,
     productsState => {
       const items: ProductModel[] = [];
-      each(productsState.entities, element => {
+      each(productsState.entities, (element: any) => {
         items.push(element);
       });
       const httpExtension = new HttpExtenstionsModel();

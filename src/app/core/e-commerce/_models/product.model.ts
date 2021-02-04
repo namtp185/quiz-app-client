@@ -3,22 +3,22 @@ import { ProductSpecificationModel } from './product-specification.model';
 import { ProductRemarkModel } from './product-remark.model';
 
 export class ProductModel extends BaseModel {
-  id: number;
-  model: string;
-  manufacture: string;
-  modelYear: number;
-  mileage: number;
-  description: string;
-  color: string;
-  price: number;
-  condition: number;
-  status: number;
-  VINCode: string;
+  id!: number;
+  model!: string;
+  manufacture!: string;
+  modelYear!: number;
+  mileage!: number;
+  description!: string;
+  color!: string;
+  price!: number;
+  condition!: number;
+  status!: number;
+  VINCode!: string;
 
   // tslint:disable-next-line
-  _specs: ProductSpecificationModel[];
+  _specs!: ProductSpecificationModel[];
   // tslint:disable-next-line
-  _remarks: ProductRemarkModel[];
+  _remarks!: ProductRemarkModel[];
 
   clear() {
     this.model = '';

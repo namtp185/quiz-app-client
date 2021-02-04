@@ -20,7 +20,7 @@ export class ProductSpecificationsService {
   }
 
   // CREATE =>  POST: add a new product specification to the server
-  createProductSpec(productSpec): Observable<ProductSpecificationModel> {
+  createProductSpec(productSpec: any): Observable<ProductSpecificationModel> {
     // Note: Add headers if needed (tokens/bearer)
     const httpHeaders = this.httpUtils.getHTTPHeaders();
     return this.http.post<ProductSpecificationModel>(
@@ -50,7 +50,7 @@ export class ProductSpecificationsService {
         _prodSpecs.forEach(item => {
           // tslint:disable-next-line
           const _item = Object.assign({}, item);
-          const specName = SPECIFICATIONS_DICTIONARY[_item.specId];
+          const specName = _item.specId ? SPECIFICATIONS_DICTIONARY[_item.specId] : null;
           if (specName) {
             _item._specificationName = specName;
           }

@@ -39,7 +39,7 @@ export const selectProductSpecificationsInStore = createSelector(
     selectProductSpecificationsState,
     productSpecificationsState => {
       const items: ProductSpecificationModel[] = [];
-      each(productSpecificationsState.entities, element => {
+      each(productSpecificationsState.entities, (element: any) => {
         items.push(element);
       });
       const httpExtension = new HttpExtenstionsModel();

@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   // CREATE =>  POST: add a new product to the server
-  createProduct(product): Observable<ProductModel> {
+  createProduct(product: any): Observable<ProductModel> {
     const httpHeaders = this.httpUtils.getHTTPHeaders();
     return this.http.post<ProductModel>(API_PRODUCTS_URL, product, {headers: httpHeaders});
   }
@@ -56,7 +56,7 @@ export class ProductsService {
   // Comment this when you start work with real server
   // This code imitates server calls
   updateStatusForProduct(products: ProductModel[], status: number): Observable<any> {
-    const tasks$ = [];
+    const tasks$: any[] = [];
     each(products, element => {
       const _product = Object.assign({}, element);
       _product.status = status;

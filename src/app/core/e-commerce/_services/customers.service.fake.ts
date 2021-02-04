@@ -58,7 +58,7 @@ export class CustomersService {
 
   // UPDATE Status
   updateStatusForCustomer(customers: CustomerModel[], status: number): Observable<any> {
-    const tasks$ = [];
+    const tasks$: any[] = [];
     each(customers, element => {
       // tslint:disable-next-line
       const _customer = Object.assign({}, element);

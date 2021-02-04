@@ -76,7 +76,7 @@ export class StickyDirective implements OnInit, AfterViewInit, OnDestroy {
       .pipe(
         throttleTime(0, animationFrame),
         // emit once since we are currently using combineLatest
-        startWith(null),
+        // startWith(null),
         share()
       );
 

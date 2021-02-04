@@ -11,7 +11,7 @@ export interface CustomersState extends EntityState<CustomerModel> {
   listLoading: boolean;
   actionsloading: boolean;
   totalCount: number;
-  lastCreatedCustomerId: number;
+  lastCreatedCustomerId: number | undefined;
   lastQuery: QueryParamsModel;
   showInitWaitingMessage: boolean;
 }

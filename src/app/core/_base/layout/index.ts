@@ -1,5 +1,5 @@
 // Directives
-export { SparklineChartOptions, SparklineChartDirective } from './directives/sparkline-chart.directive';
+// export { SparklineChartOptions, SparklineChartDirective } from './directives/sparkline-chart.directive';
 export { OffcanvasDirective } from './directives/offcanvas.directive';
 export { ScrollTopDirective } from './directives/scroll-top.directive';
 export { TabClickEventDirective } from './directives/tab-click-event.directive';

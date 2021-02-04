@@ -40,7 +40,7 @@ export const selectUsersInStore = createSelector(
     selectUsersState,
     usersState => {
         const items: User[] = [];
-        each(usersState.entities, element => {
+        each(usersState.entities, (element: any) => {
             items.push(element);
         });
         const httpExtension = new HttpExtenstionsModel();

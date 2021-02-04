@@ -21,7 +21,7 @@ export class ProductRemarksService {
   }
 
   // CREATE =>  POST: add a new product remark to the server
-  createProductRemark(productRemark): Observable<ProductRemarkModel> {
+  createProductRemark(productRemark: any): Observable<ProductRemarkModel> {
     // Note: Add headers if needed (tokens/bearer)
     const httpHeaders = this.httpUtils.getHTTPHeaders();
     return this.http.post<ProductRemarkModel>(

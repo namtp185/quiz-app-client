@@ -8,10 +8,10 @@ import { ProductRemarkModel } from '../_models/product-remark.model';
 import { QueryParamsModel } from '../../_base/crud';
 
 export interface ProductRemarksState extends EntityState<ProductRemarkModel> {
-  productId: number;
+  productId: number | undefined;
   loading: boolean;
   totalCount: number;
-  lastCreatedProductRemarkId: number;
+  lastCreatedProductRemarkId: number | undefined;
   lastQuery: QueryParamsModel;
   showInitWaitingMessage: boolean;
 }

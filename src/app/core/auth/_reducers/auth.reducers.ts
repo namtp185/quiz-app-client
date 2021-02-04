@@ -5,8 +5,8 @@ import { User } from '../_models/user.model';
 
 export interface AuthState {
   loggedIn: boolean;
-  authToken: string;
-  user: User;
+  authToken: string | undefined;
+  user: User | undefined;
   isUserLoaded: boolean;
 }
 

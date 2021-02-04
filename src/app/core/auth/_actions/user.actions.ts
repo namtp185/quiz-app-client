@@ -35,7 +35,7 @@ export class UserUpdated implements Action {
     readonly type = UserActionTypes.UserUpdated;
     constructor(public payload: {
         partialUser: Update<User>,
-        user: User
+        user: User | null
     }) { }
 }
 

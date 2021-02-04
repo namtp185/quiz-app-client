@@ -18,7 +18,7 @@ export class ProductSpecificationsService {
   }
 
   // CREATE =>  POST: add a new product specification to the server
-  createProductSpec(productSpec): Observable<ProductSpecificationModel> {
+  createProductSpec(productSpec: any): Observable<ProductSpecificationModel> {
     // Note: Add headers if needed (tokens/bearer)
     const httpHeaders = this.httpUtils.getHTTPHeaders();
     return this.http.post<ProductSpecificationModel>(API_PRODUCTSPECS_URL, productSpec, {headers: httpHeaders});

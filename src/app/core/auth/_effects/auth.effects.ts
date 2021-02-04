@@ -69,7 +69,7 @@ export class AuthEffects {
     return observableResult;
   });
 
-  private returnUrl: string;
+  private returnUrl!: string;
 
   constructor(private actions$: Actions,
               private router: Router,

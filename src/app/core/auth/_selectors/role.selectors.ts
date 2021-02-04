@@ -57,7 +57,7 @@ export const selectQueryResult = createSelector(
     selectRolesState,
     rolesState => {
         const items: Role[] = [];
-        each(rolesState.entities, element => {
+        each(rolesState.entities, (element: any) => {
             items.push(element);
         });
         const httpExtension = new HttpExtenstionsModel();

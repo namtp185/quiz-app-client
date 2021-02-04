@@ -9,7 +9,7 @@ import {selectAllPermissions} from './permission.selectors';
 import {Role} from '../_models/role.model';
 import {Permission} from '../_models/permission.model';
 
-export const selectAuthState = state => state.auth;
+export const selectAuthState = (state: any ) => state.auth;
 
 export const isLoggedIn = createSelector(selectAuthState, auth => auth.loggedIn);
 

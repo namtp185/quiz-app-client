@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   // Authentication/Authorization
-  login(email: string, password: string): Observable<User> {
+  login(email: string, password: string): Observable<User | null> {
     if (!email || !password) {
       return of(null);
     }
@@ -65,35 +65,35 @@ export class AuthService {
         map((res: User) => {
           return res;
         }),
-        catchError(err => {
-          return null;
+        catchError((err: any) => {
+          return of(null);
         })
       );
   }
 
-  requestPassword(email: string): Observable<any> {
-    return this.http.get(API_USERS_URL).pipe(
-      map((users: User[]) => {
-        if (users.length <= 0) {
-          return null;
-        }
+  // requestPassword(email: string): Observable<User | null> {
+  //   return this.http.get<User>(API_USERS_URL).pipe(
+  //     map((users: User[]) => {
+  //       if (users.length <= 0) {
+  //         return null;
+  //       }
 
-        const user = find(users, (item: User) => {
-          return (item.email.toLowerCase() === email.toLowerCase());
-        });
+  //       const user = find(users, (item: User) => {
+  //         return (item.email.toLowerCase() === email.toLowerCase());
+  //       });
 
-        if (!user) {
-          return null;
-        }
+  //       if (!user) {
+  //         return null;
+  //       }
 
-        user.password = undefined;
-        return user;
-      }),
-      catchError(this.handleError('forgot-password', []))
-    );
-  }
+  //       user.password = undefined;
+  //       return user;
+  //     }),
+  //     catchError(this.handleError('forgot-password', []))
+  //   );
+  // }
 
-  getUserByToken(): Observable<User> {
+  getUserByToken(): Observable<User | null> {
     const userToken = localStorage.getItem(environment.authTokenKey);
     if (!userToken) {
       return of(null);
@@ -134,7 +134,7 @@ export class AuthService {
     return this.http.get<User[]>(API_USERS_URL);
   }
 
-  getUserById(userId: number): Observable<User> {
+  getUserById(userId: number): Observable<User | null> {
     if (!userId) {
       return of(null);
     }
@@ -150,7 +150,7 @@ export class AuthService {
 
   // UPDATE => PUT: update the user on the server
   // tslint:disable-next-line
-  updateUser(_user: User): Observable<any> {
+  updateUser(_user: User | null): Observable<any> {
     let httpHeaders = new HttpHeaders();
     httpHeaders = httpHeaders.set('Content-Type', 'application/json');
     return this.http.put(API_USERS_URL, _user, {headers: httpHeaders}).pipe(
@@ -183,7 +183,7 @@ export class AuthService {
     return forkJoin(allRolesRequest, roleRequest).pipe(
       map(res => {
         const allPermissions: Permission[] = res[0];
-        const role: Role = res[1];
+        const role: Role | null = res[1];
         if (!allPermissions || allPermissions.length === 0) {
           return [];
         }
@@ -199,7 +199,7 @@ export class AuthService {
     const root: Permission[] = filter(allPermission, (item: Permission) => !item.parentId);
     each(root, (rootItem: Permission) => {
       rootItem._children = [];
-      rootItem._children = this.collectChildrenPermission(allPermission, rootItem.id, rolePermissionIds);
+      rootItem._children = this.collectChildrenPermission(allPermission, rootItem.id ?? 0, rolePermissionIds);
       rootItem.isSelected = (some(rolePermissionIds, (id: number) => id === rootItem.id));
       result.push(rootItem);
     });
@@ -217,7 +217,7 @@ export class AuthService {
 
     each(_children, (childItem: Permission) => {
       childItem._children = [];
-      childItem._children = this.collectChildrenPermission(allPermission, childItem.id, rolePermissionIds);
+      childItem._children = this.collectChildrenPermission(allPermission, childItem.id ?? 0, rolePermissionIds);
       childItem.isSelected = (some(rolePermissionIds, (id: number) => id === childItem.id));
       result.push(childItem);
     });
